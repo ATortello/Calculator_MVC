@@ -1,3 +1,27 @@
 <resources>
-    <string name="app_name">Calculadora_MVC</string>
+    <string name="app_name">Calculator_MVC</string>
+    <string name="btMainParenthesis">()</string>
+
+    <!-- Set of Operations -->
+    <string name="btMainClear">AC</string>
+    <string name="btMainPercentage">%</string>
+    <string name="btMainDivision">/</string>
+    <string name="btMainMultiplication">X</string>
+    <string name="btMainPlus">+</string>
+    <string name="btMainMinus">-</string>
+    <string name="btMainEqual">=</string>
+    <string name="btMainDelete">Ret</string>
+
+    <!-- Set of Digit Numbers -->
+    <string name="btMainDot">.</string>
+    <string name="btMainZero">0</string>
+    <string name="btMainOne">1</string>
+    <string name="btMainTwo">2</string>
+    <string name="btMainThree">3</string>
+    <string name="btMainFour">4</string>
+    <string name="btMainFive">5</string>
+    <string name="btMainSix">6</string>
+    <string name="btMainSeven">7</string>
+    <string name="btMainEight">8</string>
+    <string name="btMainNine">9</string>
 </resources>

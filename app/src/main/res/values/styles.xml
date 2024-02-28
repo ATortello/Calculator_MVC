@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Clear's Style -->
+    <style name="ClearStyle" parent="Theme.AppCompat.Light">
+        <item name="android:layout_marginLeft">4dp</item>
+        <item name="android:layout_marginRight">4dp</item>
+        <!--<item name="android:textColor">@color/fontAC</item>
+        <item name="android:textColorLink">@color/backgroundAC</item>-->
+    </style>
+
+    <!-- Operation's Style -->
+    <style name="OperationStyle" parent="Theme.AppCompat.Light">
+        <item name="android:layout_marginLeft">4dp</item>
+        <item name="android:layout_marginRight">4dp</item>
+        <!--<item name="android:textColor">@color/fontMainOperations</item>
+        <item name="android:textColorLink">@color/backgroundMainOperations</item>-->
+    </style>
+
+    <!-- Number's Style -->
+    <style name="NumbersStyle" parent="Theme.AppCompat.Light">
+        <item name="android:layout_marginLeft">4dp</item>
+        <item name="android:layout_marginRight">4dp</item>
+        <!--<item name="android:textColor">@color/fontMainNumbers</item>
+        <item name="android:textColorLink">@color/backgroundMainNumbers</item>-->
+    </style>
+
+    <!-- Equal's Style -->
+    <style name="EqualStyle" parent="Theme.AppCompat.Light">
+        <item name="android:layout_marginLeft">4dp</item>
+        <item name="android:layout_marginRight">4dp</item>
+        <!--<item name="android:textColor">@color/fontMainEqual</item>
+        <item name="android:textColorLink">@color/backgroundMainEqual</item>-->
+    </style>
+</resources>

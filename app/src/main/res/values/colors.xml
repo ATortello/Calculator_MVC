@@ -2,4 +2,18 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="lightGray">#FFAFABAB</color>
+    <color name="darkGray">#FF686666</color>
+
+    <!-- Colors for Operations -->
+    <color name="backgroundAC">#4B3F6F</color>
+    <color name="fontAC">#E2D7F9</color>
+    <color name="backgroundMainOperations">#374955</color>
+    <color name="fontMainOperations">#D9EAFA</color>
+    <color name="backgroundMainEqual">#004C6C</color>
+    <color name="fontMainEqual">#C0EAFE</color>
+
+    <!-- Colors for Numbers -->
+    <color name="backgroundMainNumbers">#1D2528</color>
+    <color name="fontMainNumbers">#D1E7F5</color>
 </resources>

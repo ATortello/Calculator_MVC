@@ -1,4 +1,4 @@
-package com.example.calculadora_mvc
+package com.example.calculator_mvc
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
