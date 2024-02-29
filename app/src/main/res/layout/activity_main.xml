@@ -4,197 +4,184 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#181C1F"
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/tvMainResults"
+        android:id="@+id/tvMainExpression"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:layout_margin="16dp"
-        android:background="@color/lightGray"
-        app:layout_constraintBottom_toTopOf="@+id/flMainKeys"
+        android:layout_height="80dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/resultsBackground"
+        android:hint="@string/btMainHint"
+        android:padding="@dimen/tvMainPadding"
+        android:textColor="@color/white"
+        android:textSize="@dimen/tvMainExpression"
+        app:layout_constraintBottom_toTopOf="@+id/tvMainCurrentResults"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center_vertical|end"/>
+
+    <TextView
+        android:id="@+id/tvMainCurrentResults"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/resultsBackground"
+        android:hint="@string/btMainHint"
+        android:padding="@dimen/tvMainPadding"
+        android:textColor="@color/white"
+        android:textSize="@dimen/tvMainCurrentResults"
+        app:layout_constraintBottom_toTopOf="@+id/llMainKeys"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMainExpression"
+        android:gravity="center_vertical|end"
+        android:scrollHorizontally="true"/>
 
     <LinearLayout
-        android:id="@+id/flMainKeys"
+        android:id="@+id/llMainKeys"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvMainResults">
+        app:layout_constraintTop_toBottomOf="@+id/tvMainCurrentResults">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+        <LinearLayout style="@style/LinearLayoutStyle">
 
             <Button
                 android:id="@+id/btMainClear"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/ClearStyle"
                 android:text="@string/btMainClear" />
 
             <Button
                 android:id="@+id/btMainParenthesis"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/OperationStyle"
                 android:text="@string/btMainParenthesis" />
 
             <Button
                 android:id="@+id/btMainPercentage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/OperationStyle"
                 android:text="@string/btMainPercentage" />
 
             <Button
                 android:id="@+id/btMainDivision"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/OperationStyle"
+                android:onClick="selectOperator"
                 android:text="@string/btMainDivision" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+        <LinearLayout style="@style/LinearLayoutStyle">
 
             <Button
                 android:id="@+id/btMainSeven"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/NumbersStyle"
+                android:onClick="pressedKey"
                 android:text="@string/btMainSeven" />
 
             <Button
                 android:id="@+id/btMainEight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/NumbersStyle"
+                android:onClick="pressedKey"
                 android:text="@string/btMainEight" />
 
             <Button
                 android:id="@+id/btMainNine"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/NumbersStyle"
+                android:onClick="pressedKey"
                 android:text="@string/btMainNine" />
 
             <Button
                 android:id="@+id/btMainMultiplication"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/OperationStyle"
+                android:onClick="selectOperator"
                 android:text="@string/btMainMultiplication" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+        <LinearLayout style="@style/LinearLayoutStyle">
 
             <Button
                 android:id="@+id/btMainFour"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/NumbersStyle"
+                android:onClick="pressedKey"
                 android:text="@string/btMainFour" />
 
             <Button
                 android:id="@+id/btMainFive"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/NumbersStyle"
+                android:onClick="pressedKey"
                 android:text="@string/btMainFive" />
 
             <Button
                 android:id="@+id/btMainSix"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/NumbersStyle"
+                android:onClick="pressedKey"
                 android:text="@string/btMainSix" />
 
             <Button
                 android:id="@+id/btMainMinus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/OperationStyle"
+                android:onClick="selectOperator"
                 android:text="@string/btMainMinus" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+        <LinearLayout style="@style/LinearLayoutStyle">
 
             <Button
                 android:id="@+id/btMainOne"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/NumbersStyle"
+                android:onClick="pressedKey"
                 android:text="@string/btMainOne" />
 
             <Button
                 android:id="@+id/btMainTwo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/NumbersStyle"
+                android:onClick="pressedKey"
                 android:text="@string/btMainTwo" />
 
             <Button
                 android:id="@+id/btMainThree"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/NumbersStyle"
+                android:onClick="pressedKey"
                 android:text="@string/btMainThree" />
 
             <Button
                 android:id="@+id/btMainPlus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/OperationStyle"
+                android:onClick="selectOperator"
                 android:text="@string/btMainPlus" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+        <LinearLayout style="@style/LinearLayoutStyle">
 
             <Button
                 android:id="@+id/btMainZero"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/NumbersStyle"
+                android:onClick="pressedKey"
                 android:text="@string/btMainZero" />
 
             <Button
                 android:id="@+id/btMainDot"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/NumbersStyle"
+                android:onClick="pressedKey"
                 android:text="@string/btMainDot" />
 
             <Button
                 android:id="@+id/btMainRet"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/NumbersStyle"
                 android:text="@string/btMainDelete" />
 
             <Button
                 android:id="@+id/btMainEqual"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/EqualStyle"
-                android:text="@string/btMainEqual"/>
+                android:text="@string/btMainEqual" />
         </LinearLayout>
     </LinearLayout>
 

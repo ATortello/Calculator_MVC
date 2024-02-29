@@ -1,34 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Row LinearLayout's Style -->
+    <style name="LinearLayoutStyle" parent="Theme.AppCompat.Light">
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">@dimen/llMainMargin</item>
+        <!--<item name="android:layout_marginBottom">@dimen/llMainMargin</item>-->
+    </style>
+
     <!-- Clear's Style -->
     <style name="ClearStyle" parent="Theme.AppCompat.Light">
+        <item name="android:layout_width">@dimen/buttonMainWidth</item>
+        <item name="android:layout_height">@dimen/buttonMainHeight</item>
         <item name="android:layout_marginLeft">4dp</item>
         <item name="android:layout_marginRight">4dp</item>
+        <item name="android:textSize">@dimen/fontMainClear</item>
         <!--<item name="android:textColor">@color/fontAC</item>
         <item name="android:textColorLink">@color/backgroundAC</item>-->
     </style>
 
     <!-- Operation's Style -->
     <style name="OperationStyle" parent="Theme.AppCompat.Light">
+        <item name="android:layout_width">@dimen/buttonMainWidth</item>
+        <item name="android:layout_height">@dimen/buttonMainHeight</item>
         <item name="android:layout_marginLeft">4dp</item>
         <item name="android:layout_marginRight">4dp</item>
-        <!--<item name="android:textColor">@color/fontMainOperations</item>
-        <item name="android:textColorLink">@color/backgroundMainOperations</item>-->
+        <item name="android:textSize">@dimen/fontMainSize</item>
+        <!--<item name="android:textColor">@color/fontMainOperations</item>-->
+        <item name="android:textColorLink">#374955</item>
     </style>
 
     <!-- Number's Style -->
     <style name="NumbersStyle" parent="Theme.AppCompat.Light">
+        <item name="android:layout_width">@dimen/buttonMainWidth</item>
+        <item name="android:layout_height">@dimen/buttonMainHeight</item>
         <item name="android:layout_marginLeft">4dp</item>
         <item name="android:layout_marginRight">4dp</item>
+        <item name="android:textSize">@dimen/fontMainSize</item>
+
+
         <!--<item name="android:textColor">@color/fontMainNumbers</item>
         <item name="android:textColorLink">@color/backgroundMainNumbers</item>-->
     </style>
 
     <!-- Equal's Style -->
     <style name="EqualStyle" parent="Theme.AppCompat.Light">
+        <item name="android:layout_width">@dimen/buttonMainWidth</item>
+        <item name="android:layout_height">@dimen/buttonMainHeight</item>
         <item name="android:layout_marginLeft">4dp</item>
         <item name="android:layout_marginRight">4dp</item>
+        <item name="android:textSize">@dimen/fontMainSize</item>
         <!--<item name="android:textColor">@color/fontMainEqual</item>
         <item name="android:textColorLink">@color/backgroundMainEqual</item>-->
     </style>

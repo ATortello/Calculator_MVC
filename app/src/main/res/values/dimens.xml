@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Button's size -->
+    <dimen name="buttonMainWidth">80dp</dimen>
+    <dimen name="buttonMainHeight">60dp</dimen>
+
+    <!-- Button's Text's size -->
+    <dimen name="fontMainClear">24sp</dimen>
+    <dimen name="fontMainSize">28sp</dimen>
+    <dimen name="fontMainOperationsSize">40dp</dimen>
+
+    <!-- TextView's sizes -->
+    <dimen name="tvMainPadding">8dp</dimen>
+    <dimen name="tvMainExpression">48sp</dimen>
+    <dimen name="tvMainCurrentResults">32sp</dimen>
+
+    <!-- LinearLayout's margins -->
+    <dimen name="llMainMargin">16dp</dimen>
+    <dimen name="llMainMarginBottom">8dp</dimen>
+
+</resources>
