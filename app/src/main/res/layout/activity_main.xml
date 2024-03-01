@@ -9,40 +9,27 @@
 
     <TextView
         android:id="@+id/tvMainExpression"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
+        style="@style/TextViewStyle"
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:background="@color/resultsBackground"
-        android:hint="@string/btMainHint"
-        android:padding="@dimen/tvMainPadding"
-        android:textColor="@color/white"
         android:textSize="@dimen/tvMainExpression"
         app:layout_constraintBottom_toTopOf="@+id/tvMainCurrentResults"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center_vertical|end"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/tvMainCurrentResults"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
+        style="@style/TextViewStyle"
         android:layout_marginBottom="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:background="@color/resultsBackground"
-        android:hint="@string/btMainHint"
-        android:padding="@dimen/tvMainPadding"
-        android:textColor="@color/white"
         android:textSize="@dimen/tvMainCurrentResults"
         app:layout_constraintBottom_toTopOf="@+id/llMainKeys"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvMainExpression"
-        android:gravity="center_vertical|end"
-        android:scrollHorizontally="true"/>
+        app:layout_constraintTop_toBottomOf="@+id/tvMainExpression"/>
 
     <LinearLayout
         android:id="@+id/llMainKeys"
@@ -74,7 +61,6 @@
             <Button
                 android:id="@+id/btMainDivision"
                 style="@style/OperationStyle"
-                android:onClick="selectOperator"
                 android:text="@string/btMainDivision" />
         </LinearLayout>
 
@@ -83,25 +69,21 @@
             <Button
                 android:id="@+id/btMainSeven"
                 style="@style/NumbersStyle"
-                android:onClick="pressedKey"
                 android:text="@string/btMainSeven" />
 
             <Button
                 android:id="@+id/btMainEight"
                 style="@style/NumbersStyle"
-                android:onClick="pressedKey"
                 android:text="@string/btMainEight" />
 
             <Button
                 android:id="@+id/btMainNine"
                 style="@style/NumbersStyle"
-                android:onClick="pressedKey"
                 android:text="@string/btMainNine" />
 
             <Button
                 android:id="@+id/btMainMultiplication"
                 style="@style/OperationStyle"
-                android:onClick="selectOperator"
                 android:text="@string/btMainMultiplication" />
         </LinearLayout>
 
@@ -110,25 +92,21 @@
             <Button
                 android:id="@+id/btMainFour"
                 style="@style/NumbersStyle"
-                android:onClick="pressedKey"
                 android:text="@string/btMainFour" />
 
             <Button
                 android:id="@+id/btMainFive"
                 style="@style/NumbersStyle"
-                android:onClick="pressedKey"
                 android:text="@string/btMainFive" />
 
             <Button
                 android:id="@+id/btMainSix"
                 style="@style/NumbersStyle"
-                android:onClick="pressedKey"
                 android:text="@string/btMainSix" />
 
             <Button
                 android:id="@+id/btMainMinus"
                 style="@style/OperationStyle"
-                android:onClick="selectOperator"
                 android:text="@string/btMainMinus" />
         </LinearLayout>
 
@@ -137,25 +115,21 @@
             <Button
                 android:id="@+id/btMainOne"
                 style="@style/NumbersStyle"
-                android:onClick="pressedKey"
                 android:text="@string/btMainOne" />
 
             <Button
                 android:id="@+id/btMainTwo"
                 style="@style/NumbersStyle"
-                android:onClick="pressedKey"
                 android:text="@string/btMainTwo" />
 
             <Button
                 android:id="@+id/btMainThree"
                 style="@style/NumbersStyle"
-                android:onClick="pressedKey"
                 android:text="@string/btMainThree" />
 
             <Button
                 android:id="@+id/btMainPlus"
                 style="@style/OperationStyle"
-                android:onClick="selectOperator"
                 android:text="@string/btMainPlus" />
         </LinearLayout>
 
@@ -164,14 +138,12 @@
             <Button
                 android:id="@+id/btMainZero"
                 style="@style/NumbersStyle"
-                android:onClick="pressedKey"
                 android:text="@string/btMainZero" />
 
             <Button
                 android:id="@+id/btMainDot"
                 style="@style/NumbersStyle"
-                android:onClick="pressedKey"
-                android:text="@string/btMainDot" />
+                android:text="@string/btMainDot"/>
 
             <Button
                 android:id="@+id/btMainRet"
