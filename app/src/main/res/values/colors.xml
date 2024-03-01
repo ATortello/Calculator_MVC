@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Other colors -->
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFF</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="highlighted_text_material">#FF0000</color>
+    <color name="hint_foreground_material_light">#00FF00</color>
     <color name="lightGray">#FFAFABAB</color>
     <color name="darkGray">#FF686666</color>
     <color name="resultsBackground">#27343C</color>

@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <!-- Row LinearLayout's Style -->
     <style name="LinearLayoutStyle" parent="Theme.AppCompat.Light">
-        <item name="android:gravity">center</item>
-        <item name="android:orientation">horizontal</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_marginTop">@dimen/llMainMargin</item>
-        <!--<item name="android:layout_marginBottom">@dimen/llMainMargin</item>-->
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+        <!--<item name="android:layout_marginTop">@dimen/llMainMargin</item>-->
+        <item name="android:layout_marginBottom">@dimen/llMainMargin</item>
+    </style>
+
+    <!-- TextView's Style -->
+    <style name="TextViewStyle" parent="Theme.AppCompat.Light">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:background">@color/resultsBackground</item>
+        <item name="android:hint">@string/btMainHint</item>
+        <item name="android:padding">@dimen/tvMainPadding</item>
+        <item name="android:textColor">@color/white</item>
+<!--        <item name="android:textColorHint">@color/white</item>-->
+        <item name="android:gravity">center_vertical|end</item>
     </style>
 
     <!-- Clear's Style -->
@@ -29,8 +40,8 @@
         <item name="android:layout_marginLeft">4dp</item>
         <item name="android:layout_marginRight">4dp</item>
         <item name="android:textSize">@dimen/fontMainSize</item>
-        <!--<item name="android:textColor">@color/fontMainOperations</item>-->
-        <item name="android:textColorLink">#374955</item>
+        <!--<item name="android:textColor">@color/fontMainOperations</item>
+        <item name="android:textColorLink">#374955</item>-->
     </style>
 
     <!-- Number's Style -->
@@ -40,8 +51,6 @@
         <item name="android:layout_marginLeft">4dp</item>
         <item name="android:layout_marginRight">4dp</item>
         <item name="android:textSize">@dimen/fontMainSize</item>
-
-
         <!--<item name="android:textColor">@color/fontMainNumbers</item>
         <item name="android:textColorLink">@color/backgroundMainNumbers</item>-->
     </style>
