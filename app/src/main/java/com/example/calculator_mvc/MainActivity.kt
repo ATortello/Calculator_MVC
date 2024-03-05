@@ -10,11 +10,13 @@ class MainActivity : AppCompatActivity() {
     private var valueMainExpression: String = ""
     private var valueResult: String = ""
     private var value: String = ""
+    private var currentText: String = ""
     private var operation: String = ""
     private var operator: Int = 0
     private var dotFlag: Int = 0
     private var num1: Double = 0.0
     private var num2: Double = 0.0
+    private var countRet: Int = 0
 
     /*TextViews to show information*/
     private lateinit var tvMainExpression: TextView
@@ -22,8 +24,8 @@ class MainActivity : AppCompatActivity() {
 
     /*Operation Buttons*/
     private lateinit var btMainClear: Button
-    /*private lateinit var btMainParenthesis: Button
-    private lateinit var btMainPercentage: Button*/
+//    private lateinit var btMainParenthesis: Button
+    private lateinit var btMainPercentage: Button
     private lateinit var btMainDivision: Button
     private lateinit var btMainMultiplication: Button
     private lateinit var btMainMinus: Button
@@ -52,6 +54,7 @@ class MainActivity : AppCompatActivity() {
         tvMainCurrentResults = findViewById(R.id.tvMainCurrentResults)
 
         /*Binding visual elements: Operation buttons*/
+        btMainPercentage = findViewById(R.id.btMainPercentage)
         btMainClear = findViewById(R.id.btMainClear)
         btMainDivision = findViewById(R.id.btMainDivision)
         btMainMultiplication = findViewById(R.id.btMainMultiplication)
@@ -79,59 +82,28 @@ class MainActivity : AppCompatActivity() {
             num1 = 0.0
             num2 = 0.0
             dotFlag = 0
+            countRet = 0
             tvMainExpression.text = ""
             tvMainCurrentResults.text = ""
         }
 
-        btMainDivision.setOnClickListener{
-            valueMainExpression = tvMainCurrentResults.text.toString()
-            num1 = valueMainExpression.toDouble()
-            tvMainCurrentResults.text = ""
-
-            operation = "${valueMainExpression}/"
-            tvMainExpression.text = operation
-            operator = 4
-        }
-
-        btMainMultiplication.setOnClickListener{
-            valueMainExpression = tvMainCurrentResults.text.toString()
-            num1 = valueMainExpression.toDouble()
-            tvMainCurrentResults.text = ""
-
-            operation = "${valueMainExpression}X"
-            tvMainExpression.text = operation
-            operator = 3
-        }
-
-        btMainMinus.setOnClickListener{
-            valueMainExpression = tvMainCurrentResults.text.toString()
-            num1 = valueMainExpression.toDouble()
-            tvMainCurrentResults.text = ""
-
-            operation = "${valueMainExpression}-"
-            tvMainExpression.text = operation
-            operator = 2
-        }
-
-        btMainPlus.setOnClickListener{
-            valueMainExpression = tvMainCurrentResults.text.toString()
-            num1 = valueMainExpression.toDouble()
-            tvMainCurrentResults.text = ""
-
-            operation = "${valueMainExpression}+"
-            tvMainExpression.text = operation
-            operator = 1
-        }
+        btMainPercentage.setOnClickListener { typeOperator(5) }
+        btMainDivision.setOnClickListener { typeOperator(4) }
+        btMainMultiplication.setOnClickListener { typeOperator(3) }
+        btMainMinus.setOnClickListener { typeOperator(2) }
+        btMainPlus.setOnClickListener { typeOperator(1) }
 
         btMainEqual.setOnClickListener {
             num2 = tvMainCurrentResults.text.toString().toDouble()
 
-            when(operator){
+            when(operator) {
                 1 -> valueResult = (num1 + num2).toString()
                 2 -> valueResult = (num1 - num2).toString()
                 3 -> valueResult = (num1 * num2).toString()
                 4 -> valueResult = if (num2 == 0.0) "Can't divide by 0"
                 else (num1 / num2).toString()
+                5 -> valueResult = if (num1 > 0) (num1 / 100).toString()
+                else ((num1 * num2) / 100).toString()
             }
 
             tvMainCurrentResults.text = valueResult
@@ -139,16 +111,16 @@ class MainActivity : AppCompatActivity() {
         }
 
         btMainRet.setOnClickListener {
-//            Toast.makeText(this, "Digits Qty: ${tvMainCurrentResults.length()}", Toast.LENGTH_LONG).show()
-//            val aux1: Int = tvMainCurrentResults.text
-//                .get(tvMainCurrentResults.length()-1)
-//                .digitToInt()
-//
-//            val aux2: String = (tvMainCurrentResults.text.toString().toDouble() - aux1.toDouble())
-//                .div(10).toInt().toString()
-//            Toast.makeText(this, "Digit removed: $aux1", Toast.LENGTH_LONG).show()
-//
-//            tvMainCurrentResults.text = aux2
+            currentText = tvMainCurrentResults.text.toString()
+            if (currentText.isEmpty()) {
+                countRet = 0
+                tvMainCurrentResults.text = ""
+                Toast
+                    .makeText(this, "No more numbers to remove",Toast.LENGTH_SHORT)
+                    .show()
+            }
+            else if (currentText.isNotEmpty())
+                tvMainCurrentResults.text = currentText.substring(0, currentText.length - 1)
         }
 
         /*==== Definition for each digit button ====*/
@@ -181,49 +153,34 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        btMainOne.setOnClickListener {
-            value = tvMainCurrentResults.text.toString() + "1"
-            tvMainCurrentResults.text = value
+        btMainOne.setOnClickListener { typeNumber("1") }
+        btMainTwo.setOnClickListener { typeNumber("2") }
+        btMainThree.setOnClickListener { typeNumber("3") }
+        btMainFour.setOnClickListener { typeNumber("4") }
+        btMainFive.setOnClickListener { typeNumber("5") }
+        btMainSix.setOnClickListener { typeNumber("6") }
+        btMainSeven.setOnClickListener { typeNumber("7") }
+        btMainEight.setOnClickListener { typeNumber("8") }
+        btMainNine.setOnClickListener { typeNumber("9") }
+    }
+    fun typeNumber(number: String) {
+        value = tvMainCurrentResults.text.toString() + number
+        tvMainCurrentResults.text = value
+    }
+    fun typeOperator(number: Int) {
+        valueMainExpression = tvMainCurrentResults.text.toString()
+        num1 = valueMainExpression.toDouble()
+        tvMainCurrentResults.text = ""
+
+        when(number) {
+            1 -> operation = "${valueMainExpression}+"
+            2 -> operation = "${valueMainExpression}-"
+            3 -> operation = "${valueMainExpression}X"
+            4 -> operation = "${valueMainExpression}/"
+            5 -> operation = "${valueMainExpression}%"
         }
 
-        btMainTwo.setOnClickListener {
-            value = tvMainCurrentResults.text.toString() + "2"
-            tvMainCurrentResults.text = value
-        }
-
-        btMainThree.setOnClickListener {
-            value = tvMainCurrentResults.text.toString() + "3"
-            tvMainCurrentResults.text = value
-        }
-
-        btMainFour.setOnClickListener {
-            value = tvMainCurrentResults.text.toString() + "4"
-            tvMainCurrentResults.text = value
-        }
-
-        btMainFive.setOnClickListener {
-            value = tvMainCurrentResults.text.toString() + "5"
-            tvMainCurrentResults.text = value
-        }
-
-        btMainSix.setOnClickListener {
-            value = tvMainCurrentResults.text.toString() + "6"
-            tvMainCurrentResults.text = value
-        }
-
-        btMainSeven.setOnClickListener {
-            value = tvMainCurrentResults.text.toString() + "7"
-            tvMainCurrentResults.text = value
-        }
-
-        btMainEight.setOnClickListener {
-            value = tvMainCurrentResults.text.toString() + "8"
-            tvMainCurrentResults.text = value
-        }
-
-        btMainNine.setOnClickListener {
-            value = tvMainCurrentResults.text.toString() + "9"
-            tvMainCurrentResults.text = value
-        }
+        tvMainExpression.text = operation
+        operator = number
     }
 }
