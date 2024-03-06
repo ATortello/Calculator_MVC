@@ -7,10 +7,7 @@ import android.widget.TextView
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
-//    private var valueMainExpression: String = ""
-//    private var valueResult: String = ""
     private var value: String = ""
-//    private var operation: String = ""
     private var operator: Int = 0
     private var dotFlag: Int = 0
     private var num1: Double = 0.0
@@ -98,9 +95,9 @@ class MainActivity : AppCompatActivity() {
         btMainEight.setOnClickListener { typeNumber("8") }
         btMainNine.setOnClickListener { typeNumber("9") }
     }
-    private fun typeNumber(number: String) {
+    private fun typeNumber(digit: String) {
         val value = StringBuilder(tvMainCurrentResults.text)
-        value.append(number)
+        value.append(digit)
         tvMainCurrentResults.text = value.toString()
     }
     private fun handleDot(){
@@ -131,7 +128,7 @@ class MainActivity : AppCompatActivity() {
                 .show()
         }
     }
-    private fun  typeOperator(number: Int) {
+    private fun  typeOperator(numOperator: Int) {
         var operation = ""
         val valueMainExpression: String = tvMainCurrentResults.text.toString()
 
@@ -139,7 +136,7 @@ class MainActivity : AppCompatActivity() {
             num1 = valueMainExpression.toDouble()
             tvMainCurrentResults.text = ""
 
-            when(number) {
+            when(numOperator) {
                 1 -> operation = "${valueMainExpression}+"
                 2 -> operation = "${valueMainExpression}-"
                 3 -> operation = "${valueMainExpression}X"
@@ -147,7 +144,7 @@ class MainActivity : AppCompatActivity() {
                 5 -> operation = "${valueMainExpression}%"
             }
             tvMainExpression.text = operation
-            operator = number
+            operator = numOperator
         }
         else {
             Toast
@@ -165,19 +162,16 @@ class MainActivity : AppCompatActivity() {
                 1 -> valueResult = (num1 + num2).toString()
                 2 -> valueResult = (num1 - num2).toString()
                 3 -> valueResult = (num1 * num2).toString()
-                4 -> valueResult = if (num2 == 0.0) "Can't divide by 0"
-                else (num1 / num2).toString()
+                4 -> valueResult = if (num2 == 0.0) "Can't divide by 0" else (num1 / num2).toString()
                 5 -> valueResult = ((num1 * num2) / 100).toString()
+                else -> Double.NaN
             }
-
-            tvMainCurrentResults.text = valueResult
-            tvMainExpression.text = ""
-        } else {
-            if (operator == 5 && num1 > 0) { valueResult = (num1 / 100).toString() }
-
-            tvMainCurrentResults.text = valueResult
-            tvMainExpression.text = ""
+        } else if (operator == 5) {
+             valueResult = (num1 / 100).toString()
         }
+
+        tvMainCurrentResults.text = valueResult
+        tvMainExpression.text = ""
     }
     private fun clearScreen() {
         operator = 0
@@ -198,5 +192,31 @@ class MainActivity : AppCompatActivity() {
                 .makeText(this, "No more numbers to remove",Toast.LENGTH_SHORT)
                 .show()
         }
+    }
+    override fun onDestroy() {
+        // Unregister listeners for operation buttons
+        btMainClear.setOnClickListener(null)
+        btMainPercentage.setOnClickListener(null)
+        btMainDivision.setOnClickListener(null)
+        btMainMultiplication.setOnClickListener(null)
+        btMainMinus.setOnClickListener(null)
+        btMainPlus.setOnClickListener(null)
+        btMainEqual.setOnClickListener(null)
+        btMainRet.setOnClickListener(null)
+
+        // Unregister listeners for number buttons
+        btMainDot.setOnClickListener(null)
+        btMainZero.setOnClickListener(null)
+        btMainOne.setOnClickListener(null)
+        btMainTwo.setOnClickListener(null)
+        btMainThree.setOnClickListener(null)
+        btMainFour.setOnClickListener(null)
+        btMainFive.setOnClickListener(null)
+        btMainSix.setOnClickListener(null)
+        btMainSeven.setOnClickListener(null)
+        btMainEight.setOnClickListener(null)
+        btMainNine.setOnClickListener(null)
+
+        super.onDestroy()
     }
 }
