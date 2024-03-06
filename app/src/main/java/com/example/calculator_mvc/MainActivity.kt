@@ -7,11 +7,10 @@ import android.widget.TextView
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
-    private var valueMainExpression: String = ""
-    private var valueResult: String = ""
+//    private var valueMainExpression: String = ""
+//    private var valueResult: String = ""
     private var value: String = ""
-    private var currentText: String = ""
-    private var operation: String = ""
+//    private var operation: String = ""
     private var operator: Int = 0
     private var dotFlag: Int = 0
     private var num1: Double = 0.0
@@ -77,82 +76,18 @@ class MainActivity : AppCompatActivity() {
         btMainNine = findViewById(R.id.btMainNine)
 
         /*==== Definition for each operation button ====*/
-        btMainClear.setOnClickListener {
-            operator = 0
-            num1 = 0.0
-            num2 = 0.0
-            dotFlag = 0
-            countRet = 0
-            tvMainExpression.text = ""
-            tvMainCurrentResults.text = ""
-        }
-
+        btMainClear.setOnClickListener { clearScreen() }
         btMainPercentage.setOnClickListener { typeOperator(5) }
         btMainDivision.setOnClickListener { typeOperator(4) }
         btMainMultiplication.setOnClickListener { typeOperator(3) }
         btMainMinus.setOnClickListener { typeOperator(2) }
         btMainPlus.setOnClickListener { typeOperator(1) }
-
-        btMainEqual.setOnClickListener {
-            num2 = tvMainCurrentResults.text.toString().toDouble()
-
-            when(operator) {
-                1 -> valueResult = (num1 + num2).toString()
-                2 -> valueResult = (num1 - num2).toString()
-                3 -> valueResult = (num1 * num2).toString()
-                4 -> valueResult = if (num2 == 0.0) "Can't divide by 0"
-                else (num1 / num2).toString()
-                5 -> valueResult = if (num1 > 0) (num1 / 100).toString()
-                else ((num1 * num2) / 100).toString()
-            }
-
-            tvMainCurrentResults.text = valueResult
-            tvMainExpression.text = ""
-        }
-
-        btMainRet.setOnClickListener {
-            currentText = tvMainCurrentResults.text.toString()
-            if (currentText.isEmpty()) {
-                countRet = 0
-                tvMainCurrentResults.text = ""
-                Toast
-                    .makeText(this, "No more numbers to remove",Toast.LENGTH_SHORT)
-                    .show()
-            }
-            else if (currentText.isNotEmpty())
-                tvMainCurrentResults.text = currentText.substring(0, currentText.length - 1)
-        }
+        btMainEqual.setOnClickListener { calculate() }
+        btMainRet.setOnClickListener { deleteCharacter() }
 
         /*==== Definition for each digit button ====*/
-        btMainDot.setOnClickListener {
-            val updatedDecimalValue: String
-            if(tvMainCurrentResults.text.isEmpty()) {
-                tvMainCurrentResults.text = "0."
-                dotFlag = 1
-            }
-            else {
-                if(tvMainCurrentResults.text.contains(".")) { dotFlag = 0 }
-                else {
-                    updatedDecimalValue = tvMainCurrentResults.text.toString() + "."
-                    tvMainCurrentResults.text = updatedDecimalValue
-                    dotFlag = 1
-                }
-            }
-        }
-
-        btMainZero.setOnClickListener {
-            if(tvMainCurrentResults.text.isNotEmpty()) {
-                value = tvMainCurrentResults.text.toString() + "0"
-                tvMainCurrentResults.text = value
-            }
-            else {
-                if (operator == 4) tvMainCurrentResults.text = "0"
-                else Toast
-                    .makeText(this, "No initial zeros allowed!", Toast.LENGTH_SHORT)
-                    .show()
-            }
-        }
-
+        btMainDot.setOnClickListener { handleDot() }
+        btMainZero.setOnClickListener { zeroControl() }
         btMainOne.setOnClickListener { typeNumber("1") }
         btMainTwo.setOnClickListener { typeNumber("2") }
         btMainThree.setOnClickListener { typeNumber("3") }
@@ -163,24 +98,105 @@ class MainActivity : AppCompatActivity() {
         btMainEight.setOnClickListener { typeNumber("8") }
         btMainNine.setOnClickListener { typeNumber("9") }
     }
-    fun typeNumber(number: String) {
-        value = tvMainCurrentResults.text.toString() + number
-        tvMainCurrentResults.text = value
+    private fun typeNumber(number: String) {
+        val value = StringBuilder(tvMainCurrentResults.text)
+        value.append(number)
+        tvMainCurrentResults.text = value.toString()
     }
-    fun typeOperator(number: Int) {
-        valueMainExpression = tvMainCurrentResults.text.toString()
-        num1 = valueMainExpression.toDouble()
-        tvMainCurrentResults.text = ""
-
-        when(number) {
-            1 -> operation = "${valueMainExpression}+"
-            2 -> operation = "${valueMainExpression}-"
-            3 -> operation = "${valueMainExpression}X"
-            4 -> operation = "${valueMainExpression}/"
-            5 -> operation = "${valueMainExpression}%"
+    private fun handleDot(){
+        val updatedDecimalValue: StringBuilder = StringBuilder()
+        if(tvMainCurrentResults.text.isEmpty()) {
+            tvMainCurrentResults.text = "0."
+            dotFlag = 1
         }
+        else {
+            if(!tvMainCurrentResults.text.contains(".")) {
+                updatedDecimalValue.append(tvMainCurrentResults.text).append(".")
+                tvMainCurrentResults.text = updatedDecimalValue.toString()
+                dotFlag = 1
+            }
+            else { dotFlag = 0 }
+        }
+    }
+    private fun zeroControl(){
+        val value: String
+        if(tvMainCurrentResults.text.isNotEmpty()) {
+            value = tvMainCurrentResults.text.toString() + "0"
+            tvMainCurrentResults.text = value
+        }
+        else {
+            if (operator == 4) tvMainCurrentResults.text = "0"
+            else Toast
+                .makeText(this, "No initial zeros allowed!", Toast.LENGTH_SHORT)
+                .show()
+        }
+    }
+    private fun  typeOperator(number: Int) {
+        var operation = ""
+        val valueMainExpression: String = tvMainCurrentResults.text.toString()
 
-        tvMainExpression.text = operation
-        operator = number
+        if (valueMainExpression.isNotEmpty()) {
+            num1 = valueMainExpression.toDouble()
+            tvMainCurrentResults.text = ""
+
+            when(number) {
+                1 -> operation = "${valueMainExpression}+"
+                2 -> operation = "${valueMainExpression}-"
+                3 -> operation = "${valueMainExpression}X"
+                4 -> operation = "${valueMainExpression}/"
+                5 -> operation = "${valueMainExpression}%"
+            }
+            tvMainExpression.text = operation
+            operator = number
+        }
+        else {
+            Toast
+                .makeText(this, "Not a valid number!", Toast.LENGTH_SHORT)
+                .show()
+        }
+    }
+    private fun calculate() {
+        var valueResult = ""
+
+        if (tvMainCurrentResults.text.isNotEmpty()) {
+            num2 = tvMainCurrentResults.text.toString().toDouble()
+
+            when(operator) {
+                1 -> valueResult = (num1 + num2).toString()
+                2 -> valueResult = (num1 - num2).toString()
+                3 -> valueResult = (num1 * num2).toString()
+                4 -> valueResult = if (num2 == 0.0) "Can't divide by 0"
+                else (num1 / num2).toString()
+                5 -> valueResult = ((num1 * num2) / 100).toString()
+            }
+
+            tvMainCurrentResults.text = valueResult
+            tvMainExpression.text = ""
+        } else {
+            if (operator == 5 && num1 > 0) { valueResult = (num1 / 100).toString() }
+
+            tvMainCurrentResults.text = valueResult
+            tvMainExpression.text = ""
+        }
+    }
+    private fun clearScreen() {
+        operator = 0
+        num1 = 0.0
+        num2 = 0.0
+        dotFlag = 0
+        countRet = 0
+        tvMainExpression.text = ""
+        tvMainCurrentResults.text = ""
+    }
+    private fun deleteCharacter(){
+        val currentText = tvMainCurrentResults.text.toString()
+        if (currentText.isNotEmpty())
+            tvMainCurrentResults.text = currentText.substring(0, currentText.length - 1)
+        else {
+            countRet = 0
+            Toast
+                .makeText(this, "No more numbers to remove",Toast.LENGTH_SHORT)
+                .show()
+        }
     }
 }
