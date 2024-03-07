@@ -49,9 +49,9 @@
                 android:text="@string/btMainClear" />
 
             <Button
-                android:id="@+id/btMainParenthesis"
+                android:id="@+id/btMainChangeSign"
                 style="@style/OperationStyle"
-                android:text="@string/btMainParenthesis" />
+                android:text="@string/btMainChangeSign" />
 
             <Button
                 android:id="@+id/btMainPercentage"

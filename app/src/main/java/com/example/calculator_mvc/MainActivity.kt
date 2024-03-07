@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     /*Operation Buttons*/
     private lateinit var btMainClear: Button
-//    private lateinit var btMainParenthesis: Button
+    private lateinit var btMainChangeSign: Button
     private lateinit var btMainPercentage: Button
     private lateinit var btMainDivision: Button
     private lateinit var btMainMultiplication: Button
@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity() {
         tvMainCurrentResults = findViewById(R.id.tvMainCurrentResults)
 
         /*Binding visual elements: Operation buttons*/
+        btMainChangeSign = findViewById(R.id.btMainChangeSign)
         btMainPercentage = findViewById(R.id.btMainPercentage)
         btMainClear = findViewById(R.id.btMainClear)
         btMainDivision = findViewById(R.id.btMainDivision)
@@ -73,6 +74,7 @@ class MainActivity : AppCompatActivity() {
         btMainNine = findViewById(R.id.btMainNine)
 
         /*==== Definition for each operation button ====*/
+        btMainChangeSign.setOnClickListener { changeSign() }
         btMainClear.setOnClickListener { clearScreen() }
         btMainPercentage.setOnClickListener { typeOperator(5) }
         btMainDivision.setOnClickListener { typeOperator(4) }
@@ -100,7 +102,7 @@ class MainActivity : AppCompatActivity() {
         value.append(digit)
         tvMainCurrentResults.text = value.toString()
     }
-    private fun handleDot(){
+    private fun handleDot() {
         val updatedDecimalValue: StringBuilder = StringBuilder()
         if(tvMainCurrentResults.text.isEmpty()) {
             tvMainCurrentResults.text = "0."
@@ -115,7 +117,7 @@ class MainActivity : AppCompatActivity() {
             else { dotFlag = 0 }
         }
     }
-    private fun zeroControl(){
+    private fun zeroControl() {
         val value: String
         if(tvMainCurrentResults.text.isNotEmpty()) {
             value = tvMainCurrentResults.text.toString() + "0"
@@ -128,7 +130,7 @@ class MainActivity : AppCompatActivity() {
                 .show()
         }
     }
-    private fun  typeOperator(numOperator: Int) {
+    private fun typeOperator(numOperator: Int) {
         var operation = ""
         val valueMainExpression: String = tvMainCurrentResults.text.toString()
 
@@ -149,6 +151,21 @@ class MainActivity : AppCompatActivity() {
         else {
             Toast
                 .makeText(this, "Not a valid number!", Toast.LENGTH_SHORT)
+                .show()
+        }
+    }
+    private fun changeSign() {
+        var changedNum: String = tvMainCurrentResults.text.toString()
+
+        if (changedNum.isNotEmpty()) {
+            if (!tvMainCurrentResults.text.contains("-")) {
+                changedNum = "-$changedNum"
+                tvMainCurrentResults.text = changedNum
+            }
+            else tvMainCurrentResults.text = changedNum.substring(1,changedNum.length)
+        } else {
+            Toast
+                .makeText(this,"Can't change sign to an empty field", Toast.LENGTH_SHORT)
                 .show()
         }
     }
@@ -182,7 +199,7 @@ class MainActivity : AppCompatActivity() {
         tvMainExpression.text = ""
         tvMainCurrentResults.text = ""
     }
-    private fun deleteCharacter(){
+    private fun deleteCharacter() {
         val currentText = tvMainCurrentResults.text.toString()
         if (currentText.isNotEmpty())
             tvMainCurrentResults.text = currentText.substring(0, currentText.length - 1)
