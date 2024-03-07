@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Calculator_MVC</string>
     <string name="btMainParenthesis">( )</string>
+    <string name="btMainChangeSign">&#177;</string>
 
     <!-- Set of Operations -->
     <string name="btMainClear">&#65;&#67;</string>
