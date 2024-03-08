@@ -9,10 +9,8 @@ import android.widget.Toast
 class MainActivity : AppCompatActivity() {
     private var value: String = ""
     private var operator: Int = 0
-    private var dotFlag: Int = 0
     private var num1: Double = 0.0
     private var num2: Double = 0.0
-    private var countRet: Int = 0
 
     /*TextViews to show information*/
     private lateinit var tvMainExpression: TextView
@@ -97,26 +95,28 @@ class MainActivity : AppCompatActivity() {
         btMainEight.setOnClickListener { typeNumber("8") }
         btMainNine.setOnClickListener { typeNumber("9") }
     }
+
     private fun typeNumber(digit: String) {
         val value = StringBuilder(tvMainCurrentResults.text)
         value.append(digit)
         tvMainCurrentResults.text = value.toString()
     }
+
     private fun handleDot() {
         val updatedDecimalValue: StringBuilder = StringBuilder()
         if(tvMainCurrentResults.text.isEmpty()) {
             tvMainCurrentResults.text = "0."
-            dotFlag = 1
         }
-        else {
-            if(!tvMainCurrentResults.text.contains(".")) {
-                updatedDecimalValue.append(tvMainCurrentResults.text).append(".")
-                tvMainCurrentResults.text = updatedDecimalValue.toString()
-                dotFlag = 1
-            }
-            else { dotFlag = 0 }
+        else if(!tvMainCurrentResults.text.contains(".")) {
+            updatedDecimalValue.append(tvMainCurrentResults.text).append(".")
+            tvMainCurrentResults.text = updatedDecimalValue.toString()
         }
+        else
+            Toast
+                .makeText(this, "Choose an operation before using this button again!", Toast.LENGTH_SHORT)
+                .show()
     }
+
     private fun zeroControl() {
         val value: String
         if(tvMainCurrentResults.text.isNotEmpty()) {
@@ -130,6 +130,7 @@ class MainActivity : AppCompatActivity() {
                 .show()
         }
     }
+
     private fun typeOperator(numOperator: Int) {
         var operation = ""
         val valueMainExpression: String = tvMainCurrentResults.text.toString()
@@ -154,6 +155,7 @@ class MainActivity : AppCompatActivity() {
                 .show()
         }
     }
+
     private fun changeSign() {
         var changedNum: String = tvMainCurrentResults.text.toString()
 
@@ -169,6 +171,7 @@ class MainActivity : AppCompatActivity() {
                 .show()
         }
     }
+
     private fun calculate() {
         var valueResult = ""
 
@@ -190,26 +193,26 @@ class MainActivity : AppCompatActivity() {
         tvMainCurrentResults.text = valueResult
         tvMainExpression.text = ""
     }
+
     private fun clearScreen() {
         operator = 0
         num1 = 0.0
         num2 = 0.0
-        dotFlag = 0
-        countRet = 0
         tvMainExpression.text = ""
         tvMainCurrentResults.text = ""
     }
+
     private fun deleteCharacter() {
         val currentText = tvMainCurrentResults.text.toString()
         if (currentText.isNotEmpty())
             tvMainCurrentResults.text = currentText.substring(0, currentText.length - 1)
         else {
-            countRet = 0
             Toast
                 .makeText(this, "No more numbers to remove",Toast.LENGTH_SHORT)
                 .show()
         }
     }
+
     override fun onDestroy() {
         // Unregister listeners for operation buttons
         btMainClear.setOnClickListener(null)

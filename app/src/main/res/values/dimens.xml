@@ -5,9 +5,8 @@
     <dimen name="buttonMainHeight">90dp</dimen>
 
     <!-- Button's Text's size -->
-    <dimen name="fontMainClear">24sp</dimen>
     <dimen name="fontMainSize">24sp</dimen>
-    <dimen name="fontMainOperationsSize">40dp</dimen>
+    <dimen name="fontMainOperationsSize">40sp</dimen>
 
     <!-- TextView's sizes -->
     <dimen name="tvMainPadding">8dp</dimen>
