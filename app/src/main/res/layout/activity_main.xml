@@ -45,115 +45,175 @@
 
             <Button
                 android:id="@+id/btMainClear"
-                style="@style/ClearStyle"
-                android:text="@string/btMainClear" />
+                style="@style/ButtonStyle"
+                android:backgroundTint="@color/backgroundAC"
+                android:textColor="@color/fontAC"
+                android:text="@string/btMainClear"
+                tools:targetApi="lollipop"/>
 
             <Button
                 android:id="@+id/btMainChangeSign"
-                style="@style/OperationStyle"
-                android:text="@string/btMainChangeSign" />
+                style="@style/ButtonStyle"
+                android:backgroundTint="@color/backgroundMainOperations"
+                android:textColor="@color/fontMainOperations"
+                android:text="@string/btMainChangeSign"
+                tools:targetApi="lollipop"/>
 
             <Button
                 android:id="@+id/btMainPercentage"
-                style="@style/OperationStyle"
-                android:text="@string/btMainPercentage" />
+                style="@style/ButtonStyle"
+                android:backgroundTint="@color/backgroundMainOperations"
+                android:textColor="@color/fontMainOperations"
+                android:text="@string/btMainPercentage"
+                tools:targetApi="lollipop"/>
 
             <Button
                 android:id="@+id/btMainDivision"
-                style="@style/OperationStyle"
-                android:text="@string/btMainDivision" />
+                style="@style/ButtonStyle"
+                android:backgroundTint="@color/backgroundMainOperations"
+                android:textColor="@color/fontMainOperations"
+                android:text="@string/btMainDivision"
+                tools:targetApi="lollipop"/>
         </LinearLayout>
 
         <LinearLayout style="@style/LinearLayoutStyle">
 
             <Button
                 android:id="@+id/btMainSeven"
-                style="@style/NumbersStyle"
-                android:text="@string/btMainSeven" />
+                style="@style/ButtonStyle"
+                android:backgroundTint="@color/backgroundMainNumbers"
+                android:textColor="@color/fontMainNumbers"
+                android:text="@string/btMainSeven"
+                tools:targetApi="lollipop"/>
 
             <Button
                 android:id="@+id/btMainEight"
-                style="@style/NumbersStyle"
-                android:text="@string/btMainEight" />
+                style="@style/ButtonStyle"
+                android:backgroundTint="@color/backgroundMainNumbers"
+                android:textColor="@color/fontMainNumbers"
+                android:text="@string/btMainEight"
+                tools:targetApi="lollipop"/>
 
             <Button
                 android:id="@+id/btMainNine"
-                style="@style/NumbersStyle"
-                android:text="@string/btMainNine" />
+                style="@style/ButtonStyle"
+                android:backgroundTint="@color/backgroundMainNumbers"
+                android:textColor="@color/fontMainNumbers"
+                android:text="@string/btMainNine"
+                tools:targetApi="lollipop"/>
 
             <Button
                 android:id="@+id/btMainMultiplication"
-                style="@style/OperationStyle"
-                android:text="@string/btMainMultiplication" />
+                style="@style/ButtonStyle"
+                android:backgroundTint="@color/backgroundMainOperations"
+                android:textColor="@color/fontMainOperations"
+                android:text="@string/btMainMultiplication"
+                tools:targetApi="lollipop"/>
         </LinearLayout>
 
         <LinearLayout style="@style/LinearLayoutStyle">
 
             <Button
                 android:id="@+id/btMainFour"
-                style="@style/NumbersStyle"
-                android:text="@string/btMainFour" />
+                style="@style/ButtonStyle"
+                android:backgroundTint="@color/backgroundMainNumbers"
+                android:textColor="@color/fontMainNumbers"
+                android:text="@string/btMainFour"
+                tools:targetApi="lollipop"/>
 
             <Button
                 android:id="@+id/btMainFive"
-                style="@style/NumbersStyle"
-                android:text="@string/btMainFive" />
+                style="@style/ButtonStyle"
+                android:backgroundTint="@color/backgroundMainNumbers"
+                android:textColor="@color/fontMainNumbers"
+                android:text="@string/btMainFive"
+                tools:targetApi="lollipop"/>
 
             <Button
                 android:id="@+id/btMainSix"
-                style="@style/NumbersStyle"
-                android:text="@string/btMainSix" />
+                style="@style/ButtonStyle"
+                android:backgroundTint="@color/backgroundMainNumbers"
+                android:textColor="@color/fontMainNumbers"
+                android:text="@string/btMainSix"
+                tools:targetApi="lollipop"/>
 
             <Button
                 android:id="@+id/btMainMinus"
-                style="@style/OperationStyle"
-                android:text="@string/btMainMinus" />
+                style="@style/ButtonStyle"
+                android:backgroundTint="@color/backgroundMainOperations"
+                android:textColor="@color/fontMainOperations"
+                android:text="@string/btMainMinus"
+                tools:targetApi="lollipop"/>
         </LinearLayout>
 
         <LinearLayout style="@style/LinearLayoutStyle">
 
             <Button
                 android:id="@+id/btMainOne"
-                style="@style/NumbersStyle"
-                android:text="@string/btMainOne" />
+                style="@style/ButtonStyle"
+                android:backgroundTint="@color/backgroundMainNumbers"
+                android:textColor="@color/fontMainNumbers"
+                android:text="@string/btMainOne"
+                tools:targetApi="lollipop"/>
 
             <Button
                 android:id="@+id/btMainTwo"
-                style="@style/NumbersStyle"
-                android:text="@string/btMainTwo" />
+                style="@style/ButtonStyle"
+                android:backgroundTint="@color/backgroundMainNumbers"
+                android:textColor="@color/fontMainNumbers"
+                android:text="@string/btMainTwo"
+                tools:targetApi="lollipop"/>
 
             <Button
                 android:id="@+id/btMainThree"
-                style="@style/NumbersStyle"
-                android:text="@string/btMainThree" />
+                style="@style/ButtonStyle"
+                android:backgroundTint="@color/backgroundMainNumbers"
+                android:textColor="@color/fontMainNumbers"
+                android:text="@string/btMainThree"
+                tools:targetApi="lollipop"/>
 
             <Button
                 android:id="@+id/btMainPlus"
-                style="@style/OperationStyle"
-                android:text="@string/btMainPlus" />
+                style="@style/ButtonStyle"
+                android:backgroundTint="@color/backgroundMainOperations"
+                android:textColor="@color/fontMainOperations"
+                android:text="@string/btMainPlus"
+                tools:targetApi="lollipop"/>
         </LinearLayout>
 
         <LinearLayout style="@style/LinearLayoutStyle">
 
             <Button
                 android:id="@+id/btMainZero"
-                style="@style/NumbersStyle"
-                android:text="@string/btMainZero" />
+                style="@style/ButtonStyle"
+                android:backgroundTint="@color/backgroundMainNumbers"
+                android:textColor="@color/fontMainNumbers"
+                android:text="@string/btMainZero"
+                tools:targetApi="lollipop"/>
 
             <Button
                 android:id="@+id/btMainDot"
-                style="@style/NumbersStyle"
-                android:text="@string/btMainDot"/>
+                style="@style/ButtonStyle"
+                android:backgroundTint="@color/backgroundMainNumbers"
+                android:textColor="@color/fontMainNumbers"
+                android:text="@string/btMainDot"
+                tools:targetApi="lollipop"/>
 
             <Button
                 android:id="@+id/btMainRet"
-                style="@style/NumbersStyle"
-                android:text="@string/btMainDelete" />
+                style="@style/ButtonStyle"
+                android:backgroundTint="@color/backgroundMainNumbers"
+                android:textColor="@color/fontMainNumbers"
+                android:text="@string/btMainDelete"
+                tools:targetApi="lollipop"/>
 
             <Button
                 android:id="@+id/btMainEqual"
-                style="@style/EqualStyle"
-                android:text="@string/btMainEqual" />
+                style="@style/ButtonStyle"
+                android:backgroundTint="@color/backgroundMainEqual"
+                android:textColor="@color/fontMainEqual"
+                android:text="@string/btMainEqual"
+                tools:targetApi="lollipop"/>
         </LinearLayout>
     </LinearLayout>
 
